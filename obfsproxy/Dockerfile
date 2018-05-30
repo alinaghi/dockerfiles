@@ -13,6 +13,7 @@ RUN set -xe \
 
 ENV LOG_MIN_SEVERITY info
 ENV DATA_DIR /var/lib/obfsproxy
+ENV MODE scramblesuit
 ENV PASSWORD XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ENV DEST_ADDR openvpn
 ENV DEST_PORT 1194
@@ -22,7 +23,7 @@ ENV LISTEN_PORT 4911
 
 CMD obfsproxy --log-min-severity=$LOG_MIN_SEVERITY \
               --data-dir=$DATA_DIR \
-              scramblesuit \
+              $MODE \
               --password=$PASSWORD \
               --dest=$DEST_ADDR:$DEST_PORT \
               $RUN_MODE \
